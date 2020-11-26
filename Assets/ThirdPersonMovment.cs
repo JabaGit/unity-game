@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class ThirdPersonMovment : MonoBehaviour
@@ -9,6 +10,7 @@ public class ThirdPersonMovment : MonoBehaviour
     //public Rigidbody body;
     public Transform cam;
     public Transform groundCheck;
+    public Transform body;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     public float jumpHeight = 3f;
@@ -27,15 +29,19 @@ public class ThirdPersonMovment : MonoBehaviour
     public Vector3 bodyVelocity;
     Vector3 velocity;
     public float gravity = -9.81f;
+    public Vector3 checkpoint;
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Debug.Log("test");
+        checkpoint = body.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         if (isGrounded && velocity.y < 0)
         {
@@ -63,6 +69,11 @@ public class ThirdPersonMovment : MonoBehaviour
             //body.velocity = moveDir * speed * Time.deltaTime;
             
             controller.Move(moveDir * speed * Time.deltaTime);
+        }
+        if (Input.GetKey(KeyCode.R))
+        {
+            Debug.Log(checkpoint);
+            body.position = checkpoint;
         }
     }
 
