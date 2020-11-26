@@ -72,7 +72,6 @@ public class ThirdPersonMovment : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.R))
         {
-            Debug.Log(checkpoint);
             body.position = checkpoint;
         }
     }

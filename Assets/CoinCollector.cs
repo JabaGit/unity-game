@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CoinCollector : MonoBehaviour
 {
-    //public GameObject BoostEffect;
+    public GameObject BoostEffect;
     public float duration = 3f;
-    public float multiplier = 4f;
+    public float multiplier = 1.5f;
 
     void OnTriggerEnter(Collider other)
     {
@@ -18,7 +18,7 @@ public class CoinCollector : MonoBehaviour
 
     IEnumerator Boost(Collider player)
     {
-        // Instantiate(BoostEffect, transform.position, transform.rotation);
+        Instantiate(BoostEffect, transform.position, transform.rotation);
 
 
         Debug.Log("Boost erkannt zumindest");
