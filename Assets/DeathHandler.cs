@@ -7,6 +7,7 @@ public class DeathHandler : MonoBehaviour
     public float duration = 1f;
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Zack");
         if (other.CompareTag("Player"))
         {
             StartCoroutine(Boost(other));
@@ -18,7 +19,6 @@ public class DeathHandler : MonoBehaviour
         ThirdPersonMovment playerMovement = player.GetComponent<ThirdPersonMovment>();
         
         yield return new WaitForSeconds(duration);
-        Debug.Log("Pl Pos:" + player.transform.position + "Check Pos:" + playerMovement.checkpoint);
         player.transform.position = playerMovement.checkpoint;
     }
 }
