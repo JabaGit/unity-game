@@ -7,7 +7,7 @@ public class PlatformHandler : MonoBehaviour
     public Vector3 endPoint;
     public float speed = 1f;
     
-    void Update()
+    void FixedUpdate()
     {
         
         transform.position = Vector3.Lerp(startPoint, endPoint, Mathf.PingPong(Time.time * speed, 1.0f));
