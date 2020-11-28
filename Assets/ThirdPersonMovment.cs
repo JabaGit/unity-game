@@ -92,4 +92,5 @@ public class ThirdPersonMovment : MonoBehaviour
         }*/
         //if (direction.magnitude >= 0.1f) body.MovePosition(body.position + moveDir * speed * Time.fixedDeltaTime);
     }
+    
 }
