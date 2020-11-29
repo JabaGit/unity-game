@@ -30,6 +30,8 @@ public class ThirdPersonMovment : MonoBehaviour
     Vector3 velocity;
     public float gravity = -9.81f;
     public Vector3 checkpoint;
+    public Vector3 impact;
+    public float pushbackDuration = 1f;
 
     private void Start()
     {
@@ -58,6 +60,14 @@ public class ThirdPersonMovment : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         direction = new Vector3(horizontal, 0f, vertical).normalized;
+
+        if(impact.magnitude > 0.2)
+        {
+            Debug.Log("3rd p. debugh msg");
+            controller.Move(impact * Time.deltaTime);
+            impact = Vector3.Lerp(impact, Vector3.zero, pushbackDuration * Time.deltaTime);
+        } else
+
 
         if(direction.magnitude >= 0.1f)
         {

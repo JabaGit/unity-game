@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7916322742813117839}
   - component: {fileID: 7916322742813117838}
   - component: {fileID: 7916322742813117841}
+  - component: {fileID: 3084293272888586903}
   m_Layer: 8
   m_Name: RotationObstacle
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7916322742813117840}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 92.35, y: 23.300001, z: -180.85}
+  m_LocalPosition: {x: 92.35, y: 23.902, z: -180.187}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -326,3 +327,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 7916322742813117834}
   rotationSpeed: 2
+  duration: 0
+  pushbackFactor: 15
+--- !u!65 &3084293272888586903
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7916322742813117840}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.5, y: 1.5, z: 1.5}
+  m_Center: {x: 2.41, y: 0.5, z: -0.51}
