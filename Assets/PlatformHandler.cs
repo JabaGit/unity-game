@@ -21,8 +21,7 @@ public class PlatformHandler : MonoBehaviour
         {
            
             other.transform.parent = transform;
-            //transform.parent = other.transform;
-            Debug.Log("Trigger wurde beterten");
+
         }
     }
 
@@ -31,7 +30,7 @@ public class PlatformHandler : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             other.transform.parent = null;
-            //transform.parent = null;
+           
 
         }
     }

@@ -12,7 +12,7 @@ public class Finisher : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("TODO: gewinnen");
+            
 
             winningText.SetActive(true);
             

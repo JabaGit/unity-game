@@ -5,22 +5,14 @@ using UnityEngine;
 public class objectMover : MonoBehaviour
 {
 
-    public CharacterController controller;
-    //public float direction = 1;
-    public Vector3 direction;
-    public Transform body;
-
-    // Start is called before the first frame update
-    void Start()
+    public Vector3 startPoint;
+    public Vector3 endPoint;
+    public float speed = 1f;
+    
+    void FixedUpdate()
     {
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        body.Translate(direction);
-        //controller.Move(direction);
-        direction.x = Mathf.Sin(Time.time) * 0.1f;
+    transform.position = Vector3.Lerp(startPoint, endPoint, Mathf.PingPong(Time.time * speed, 1.0f));
+        
     }
 }
