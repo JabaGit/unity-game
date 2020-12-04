@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Finisher : MonoBehaviour
 {
     public GameObject winningText;
+    public static bool playerHasWon = false;
 
     void OnTriggerEnter(Collider other)
     {
@@ -15,9 +16,22 @@ public class Finisher : MonoBehaviour
             
 
             winningText.SetActive(true);
+            playerHasWon = true;
+            //Debug.Log("Bool hasWon", playerHasWon);
             
             
             //SceneManager.LoadScene(sceneName: "MainMenu");
         }
     }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerHasWon = false;
+            //SceneManager.LoadScene(sceneName: "MainMenu");
+        }
+    }
+
+
 }

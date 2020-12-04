@@ -5,7 +5,8 @@ using UnityEngine;
 public class DeathHandler : MonoBehaviour
 {
     public GameObject DeathEffect;
-    public float duration = 1f;
+    public static bool playerIsDead;
+    public float duration = 2f;
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -19,7 +20,9 @@ public class DeathHandler : MonoBehaviour
         Instantiate(DeathEffect, player.transform.position, player.transform.rotation);
         ThirdPersonMovment playerMovement = player.GetComponent<ThirdPersonMovment>();
         playerMovement.controller.enabled = false;
+        playerIsDead = true;
         yield return new WaitForSeconds(duration);
+        playerIsDead = false;
         player.transform.position = playerMovement.checkpoint;
         playerMovement.controller.enabled = true;
     }

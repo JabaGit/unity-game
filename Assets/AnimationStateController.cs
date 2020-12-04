@@ -21,12 +21,36 @@ public class AnimationStateController : MonoBehaviour
         bool leftPressed = Input.GetKey("a");
         bool backwardPressed = Input.GetKey("s");
         bool rightPressed = Input.GetKey("d");
+        bool hasWon = Finisher.playerHasWon;
+        bool isDead = DeathHandler.playerIsDead;
+        bool isJumping = ThirdPersonMovment.playerIsJumping;
         if(forwardPressed || leftPressed || backwardPressed || rightPressed){
             animator.SetBool("IsRunning", true);
 
         }
         else {
              animator.SetBool("IsRunning", false);
+        }
+
+        if(hasWon)
+        {
+            animator.SetBool("hasWon", true);
+        }
+
+        if(isDead)
+        {
+            animator.SetBool("isDead", true);
+        }
+        else {
+            animator.SetBool("isDead", false);
+        }
+
+        if(isJumping)
+        {
+            animator.SetBool("isJumping", true);
+        }
+        else {
+            animator.SetBool("isJumping", false);
         }
     }
 }

@@ -32,6 +32,7 @@ public class ThirdPersonMovment : MonoBehaviour
     public Vector3 checkpoint;
     public Vector3 impact;
     public float pushbackDuration = 1f;
+    public static bool playerIsJumping = false;
 
     private void Start()
     {
@@ -47,6 +48,7 @@ public class ThirdPersonMovment : MonoBehaviour
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         if (isGrounded && velocity.y < 0)
         {
+            
             velocity.y = -2f;
         }
         velocity.y += gravity * Time.deltaTime;
@@ -55,8 +57,19 @@ public class ThirdPersonMovment : MonoBehaviour
         {
             //body.AddForce(0, jumpForce, 0);
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            Debug.Log(playerIsJumping);
+        }
+        //Jump Animation starts way too late, one must differiante between Jump Up and Down
+        /*
+        if(isGrounded) {
+            
+            playerIsJumping = false;
+        }
+        else {
+            playerIsJumping = true;
         }
 
+        */
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         direction = new Vector3(horizontal, 0f, vertical).normalized;
