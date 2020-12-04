@@ -6,7 +6,27 @@ ModelImporter:
   - first:
       74: -203655887218126122
     second: mixamo.com
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Guard_02
+    second: {fileID: 2100000, guid: a02b6d87e16ff034cbf5f2ce11bf4dfd, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Guard_02__diffuse
+    second: {fileID: 2800000, guid: e3d276cc3a7e40742a8d48f94253bff8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Guard_02__normal
+    second: {fileID: 2800000, guid: 1e3224cfab6b535498e7e4beeb9a597f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Guard_02__specular
+    second: {fileID: 2800000, guid: 78561fdeabd3e894da79c8a2b31973b1, type: 3}
   materials:
     materialImportMode: 1
     materialName: 0
