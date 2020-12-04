@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ThirdPersonMovment : MonoBehaviour
 {
@@ -57,7 +58,7 @@ public class ThirdPersonMovment : MonoBehaviour
         {
             //body.AddForce(0, jumpForce, 0);
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-            Debug.Log(playerIsJumping);
+            
         }
         //Jump Animation starts way too late, one must differiante between Jump Up and Down
         /*
@@ -97,6 +98,13 @@ public class ThirdPersonMovment : MonoBehaviour
         {
             body.position = checkpoint;
         }
+
+         if (Input.GetKey(KeyCode.C) && Finisher.playerHasWon)
+        {
+           SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
+
     }
 
     void FixedUpdate()
