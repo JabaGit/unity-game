@@ -7,6 +7,11 @@ public class SpearTrapDeathHandler : MonoBehaviour
     //public GameObject DeathEffect;
     public static bool playerIsDead;
     public float duration = 2f;
+    public PlayerStats playerstats;
+    public int damage = 50;
+
+   
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -22,6 +27,8 @@ public class SpearTrapDeathHandler : MonoBehaviour
         ThirdPersonMovment playerMovement = player.GetComponent<ThirdPersonMovment>();
         playerMovement.controller.enabled = false;
         playerIsDead = true;
+        playerstats.calculateDamage(damage);
+    
         yield return new WaitForSeconds(duration);
         playerIsDead = false;
         player.transform.position = playerMovement.checkpoint;

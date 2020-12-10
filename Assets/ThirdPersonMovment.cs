@@ -35,12 +35,13 @@ public class ThirdPersonMovment : MonoBehaviour
     public float pushbackDuration = 1f;
     public static bool playerIsJumping = false;
     public static bool playerIsJumpingDown = false;
+    //public HealthBar healthbar;
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Debug.Log("test");
         checkpoint = body.position;
+        //healthbar.SetMaxHealth(100, 3);
     }
 
     // Update is called once per frame

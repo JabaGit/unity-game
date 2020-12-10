@@ -7,6 +7,7 @@ public class DeathHandler : MonoBehaviour
     public GameObject DeathEffect;
     public static bool playerIsDead;
     public float duration = 2f;
+    public PlayerStats playerstats;
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -21,6 +22,7 @@ public class DeathHandler : MonoBehaviour
         ThirdPersonMovment playerMovement = player.GetComponent<ThirdPersonMovment>();
         playerMovement.controller.enabled = false;
         playerIsDead = true;
+        playerstats.calculateDamage(100);
         yield return new WaitForSeconds(duration);
         playerIsDead = false;
         player.transform.position = playerMovement.checkpoint;

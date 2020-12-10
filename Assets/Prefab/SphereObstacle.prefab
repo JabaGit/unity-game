@@ -34103,6 +34103,7 @@ MonoBehaviour:
   DeathEffect: {fileID: 1947871717301538, guid: a990e3ac1318b834488c784d851f42a9,
     type: 3}
   duration: 1
+  playerstats: {fileID: 0}
 --- !u!135 &7802554934520278983
 SphereCollider:
   m_ObjectHideFlags: 0
