@@ -16,9 +16,11 @@ public class PlatformHandler : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
+        
 
         if (other.gameObject.tag == "Player")
         {
+            
            
             other.transform.parent = transform;
 
@@ -29,6 +31,7 @@ public class PlatformHandler : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            
             other.transform.parent = null;
            
 

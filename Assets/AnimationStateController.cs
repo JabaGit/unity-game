@@ -24,6 +24,7 @@ public class AnimationStateController : MonoBehaviour
         bool hasWon = Finisher.playerHasWon;
         bool isDead = DeathHandler.playerIsDead || SpearTrapDeathHandler.playerIsDead;
         bool isJumping = ThirdPersonMovment.playerIsJumping;
+        bool isJumpingDown = ThirdPersonMovment.playerIsJumpingDown;
         bool isActivated = ActivateSpearTrap.spearIsActivated;
         if(forwardPressed || leftPressed || backwardPressed || rightPressed){
             animator.SetBool("IsRunning", true);
@@ -49,9 +50,20 @@ public class AnimationStateController : MonoBehaviour
         if(isJumping)
         {
             animator.SetBool("isJumping", true);
+            
         }
         else {
             animator.SetBool("isJumping", false);
+            
+        }
+
+        if(isJumpingDown)
+        {
+            animator.SetBool("isJumpingDown", true);
+            
+        }
+        else {
+            animator.SetBool("isJumpingDown", false);
         }
 
         /* if(isActivated)

@@ -34,6 +34,7 @@ public class ThirdPersonMovment : MonoBehaviour
     public Vector3 impact;
     public float pushbackDuration = 1f;
     public static bool playerIsJumping = false;
+    public static bool playerIsJumpingDown = false;
 
     private void Start()
     {
@@ -60,17 +61,26 @@ public class ThirdPersonMovment : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             
         }
+
+        
+
         //Jump Animation starts way too late, one must differiante between Jump Up and Down
-        /*
+        
         if(isGrounded) {
             
             playerIsJumping = false;
+            playerIsJumpingDown = false;
         }
-        else {
+        if(!isGrounded && velocity.y > 0)
+        {
             playerIsJumping = true;
         }
+          if(!isGrounded && velocity.y < 0)
+        {
+            playerIsJumpingDown = true;
+        }
 
-        */
+        
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         direction = new Vector3(horizontal, 0f, vertical).normalized;
@@ -106,7 +116,7 @@ public class ThirdPersonMovment : MonoBehaviour
 
 
     }
-
+/*
     void FixedUpdate()
     {
         //Vector3 xzVelocity = new Vector3(body.velocity.x, 0f, body.velocity.z);
@@ -120,8 +130,10 @@ public class ThirdPersonMovment : MonoBehaviour
         {
             body.AddForce(-body.velocity * speed * Time.fixedDeltaTime * 0.5f, ForceMode.Impulse);
             Debug.Log(xzVelocity);
-        }*/
+        }
         //if (direction.magnitude >= 0.1f) body.MovePosition(body.position + moveDir * speed * Time.fixedDeltaTime);
-    }
+    } */
+
+    
     
 }
