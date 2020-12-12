@@ -156,6 +156,11 @@ namespace SpeedTutorMainMenuSystem
                 newGameDialog.SetActive(true);
                 menuNumber = 7;
             }
+            if (buttonType == "ExitToMenu")
+            {
+                SceneManager.LoadScene("MainMenu");
+                GoBackToMainMenu();
+            }
         }
         #endregion
 

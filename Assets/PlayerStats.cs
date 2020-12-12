@@ -8,7 +8,7 @@ public class PlayerStats : MonoBehaviour
     public int numberOfLifes;
     private int health;
 
-    public GameObject deathText;
+    public GameObject deathMenu;
     
     // Start is called before the first frame update
     void Start()
@@ -25,6 +25,7 @@ public class PlayerStats : MonoBehaviour
         
     }
 
+
     public void calculateDamage(int damage){
 
     
@@ -40,12 +41,15 @@ public class PlayerStats : MonoBehaviour
             health = 100;
             healthbar.SetHealth(health);
             healthbar.setHealthNumber(health);
+            healthbar.setHealthNumber(health);
+            healthbar.destroyHeart(numberOfLifes);
             numberOfLifes--;
             Debug.Log("You Lost a Life");
             Debug.Log(numberOfLifes + " life left");
         }
         else {
-            deathText.SetActive(true);
+            deathMenu.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
             Debug.Log("Verloren");
         }
     }

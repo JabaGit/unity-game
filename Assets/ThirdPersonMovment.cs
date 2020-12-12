@@ -2,7 +2,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -35,12 +34,15 @@ public class ThirdPersonMovment : MonoBehaviour
     public float pushbackDuration = 1f;
     public static bool playerIsJumping = false;
     public static bool playerIsJumpingDown = false;
-    public GameObject uIController;
+    public GameObject menu;
+    private bool isMenuOpen = false;
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         checkpoint = body.position;
+        Finisher.playerHasWon = false;
+        controller.enabled = true;
         //healthbar.SetMaxHealth(100, 3);
     }
 
@@ -114,10 +116,24 @@ public class ThirdPersonMovment : MonoBehaviour
         {
            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-         if (Input.GetKey(KeyCode.Escape))
+
+         if ((Input.GetKey(KeyCode.Escape)) && !isMenuOpen)
         {
-            uIController.SetActive(true);
+            menu.SetActive(true);
+            isMenuOpen = true;
+            Cursor.lockState = CursorLockMode.None;
+
+            
         }
+        
+          else if((Input.GetKey(KeyCode.Escape)) && isMenuOpen)
+        {
+            menu.SetActive(false);
+            isMenuOpen = false;
+            Cursor.lockState = CursorLockMode.Locked;
+
+        }
+        
 
 
     }
