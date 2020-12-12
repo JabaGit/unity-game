@@ -35,7 +35,7 @@ public class ThirdPersonMovment : MonoBehaviour
     public float pushbackDuration = 1f;
     public static bool playerIsJumping = false;
     public static bool playerIsJumpingDown = false;
-    //public HealthBar healthbar;
+    public GameObject uIController;
 
     private void Start()
     {
@@ -113,6 +113,10 @@ public class ThirdPersonMovment : MonoBehaviour
          if (Input.GetKey(KeyCode.C) && Finisher.playerHasWon)
         {
            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+         if (Input.GetKey(KeyCode.Escape))
+        {
+            uIController.SetActive(true);
         }
 
 

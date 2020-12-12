@@ -16,4 +16,10 @@ public class ActivateSpearTrap : MonoBehaviour
         }
     }
 
+    void OnTriggerExit(Collider other){
+
+        Debug.Log("Exit the Spear Trigger");
+        
+    }
+
 }
