@@ -107,7 +107,7 @@ public class ThirdPersonMovment : MonoBehaviour
             
             controller.Move(moveDir * speed * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.R))
+        if ((Input.GetKey(KeyCode.R)) && !Finisher.playerHasWon)
         {
             body.position = checkpoint;
         }
