@@ -13,6 +13,6 @@ public class resource : MonoBehaviour
     {
         res += Time.deltaTime;
         int show = (int) res;
-        resText.text = show.ToString();
+        resText.text = show.ToString() + "s";
     }
 }
